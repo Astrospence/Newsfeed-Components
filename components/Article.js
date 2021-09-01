@@ -102,21 +102,48 @@ const data = [
 
     <span class="expandButton">+</span>
   </div>*/
-  const article = document.createElement('.articles');
+  const articles = document.querySelector('.articles');
 
   function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }){
-    const art = document.createElement('.article');
-    art.classList.add('article');
-    const h2 = document.createElement('.article');
-    const p = document.createElement('.article');
+    const article = document.createElement('div');
+    article.classList.add('article');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
     p.classList.add('date');
-    const p1 = document.createElement('.article');
-    const p2 = document.createElement('.article');
-    const p3 = document.createElement('.article');
-    const button = document.createElement('.article');
+    const p1 = document.createElement('p');
+    const p2 = document.createElement('p');
+    const p3 = document.createElement('p');
+    const button = document.createElement('span');
     button.classList.add('expandButton');
+
+    article.appendChild(articles);
+    h2.appendChild(article);
+    p.appendChild(article);
+    p1.appendChild(article);
+    p2.appendChild(article);
+    p3.appendChild(article);
+    button.appendChild(article);
+    
+    h2.textContent = title;
+    p.textContent = date;
+    p1.textContent = firstParagraph;
+    p2.textContent = secondParagraph;
+    p3.textContent = thirdParagraph;
+    button.textContent = '+';
+
+    button.addEventListener('click', event => {
+      button.classList.toggle('article-open');
+
+      return article;
+    })
   }
 
+  const articleElements = data.map(item => {
+    return articleMaker(item);
+  })
+
+  
+  
   /*Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
