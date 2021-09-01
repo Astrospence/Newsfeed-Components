@@ -38,7 +38,7 @@ const header = document.querySelector('.header');
 
 header.appendChild(menuMaker(menuItems));
 
-console.log(menuMaker(menuItems));
+
 
   /*<div class="menu">
     <ul>
