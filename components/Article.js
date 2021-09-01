@@ -86,6 +86,20 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Spencer Rocks at JavaScript!',
+    date: '9/1/2021',
+    firstParagraph: 'I love Magic the Gathering. I mostly play with my brother and brother-in-law, and we have so much fun with it. It is always dynamic and never gets boring.',
+    secondParagraph: 'I also love Lego. It is so much fun to create complex things and be proud of what I made. That may be partly why I also love coding so much.',
+    thirdParagraph: 'Let\'s face it, I have a lot of hobbies and iterests. But another thing worth mentioning is I love marksmanship, both with firearms and archery.'
+  },
+  {
+    title: 'Harry Potter Magical Creatures Sighted',
+    date: '9/1/2021',
+    firstParagraph: 'Fawkes the Pheonix. Combat reports say that somehow he infiltrated a high security prison camp and healed our imprisoned troops from their continued exposure to harsh environments and over-strenuous labor. They then rose up with renewed strength and captured the camp from within. Dumbledore\'s feathery friend still flies among us to this day.',
+    secondParagraph: 'Buckbeak. Sources say that live footage was taken of the magestic hippogriff as he took to the skies from among a herd of wild mustangs. We were unable to obtain the footage, unfortunately. But why should that mean that it\'s not real?',
+    thirdParagraph: 'Merpeople. Police reports say that they responded to an incident in which multiple victims\' arms and legs were shorn off. They were then dragged beneath the surface and returned to land whilst being warned by harsh voices to never disturb their territory again. They reported that the assailants were strange people with fins instead of feat. This occurred at the great lakes. Perhaps we should take this as a warning that American merpeople are vicious.',
   }
 ];
 
@@ -101,9 +115,54 @@ const data = [
     {three separate paragraph elements}
 
     <span class="expandButton">+</span>
-  </div>
+  </div>*/
+  const articles = document.querySelector('.articles');
 
-  Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
+  function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }){
+    const article = document.createElement('div');
+    article.classList.add('article');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    p.classList.add('date');
+    const p1 = document.createElement('p');
+    const p2 = document.createElement('p');
+    const p3 = document.createElement('p');
+    const button = document.createElement('button');
+    button.classList.add('expandButton');
+
+    articles.appendChild(article);
+    article.appendChild(h2);
+    article.appendChild(p);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    article.appendChild(p3);
+    article.appendChild(button);
+    
+    h2.textContent = title;
+    p.textContent = date;
+    p1.textContent = firstParagraph;
+    p2.textContent = secondParagraph;
+    p3.textContent = thirdParagraph;
+    button.textContent = '+';
+
+    button.addEventListener('click', () => {
+      article.classList.toggle('article-open');
+    })
+
+    return article;
+  }
+
+  const articleElements = data.map(item => {
+    return articleMaker(item);
+  })
+  
+  
+  
+  /*articleElements.forEach(value => {
+    articles.appendChild(value);
+  })
+  
+  /*Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
   Step 3: Don't forget to return something from your function!
