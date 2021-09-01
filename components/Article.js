@@ -86,6 +86,20 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Spencer Rocks at JavaScript!',
+    date: '9/1/2021',
+    firstParagraph: 'I love Magic the Gathering. I mostly play with my brother and brother-in-law, and we have so much fun with it. It is always dynamic and never gets boring.',
+    secondParagraph: 'I also love Lego. It is so much fun to create complex things and be proud of what I made. That may be partly why I also love coding so much.',
+    thirdParagraph: 'Let\'s face it, I have a lot of hobbies and iterests. But another thing worth mentioning is I love marksmanship, both with firearms and archery.'
+  },
+  {
+    title: 'Harry Potter Magical Creatures Sighted',
+    date: '9/1/2021',
+    firstParagraph: 'Fawkes the Pheonix. Combat reports say that somehow he infiltrated a high security prison camp and healed our imprisoned troops from their continued exposure to harsh environments and over-strenuous labor. They then rose up with renewed strength and captured the camp from within. Dumbledore\'s feathery friend still flies among us to this day.',
+    secondParagraph: 'Buckbeak. Sources say that live footage was taken of the magestic hippogriff as he took to the skies from among a herd of wild mustangs. We were unable to obtain the footage, unfortunately. But why should that mean that it\'s not real?',
+    thirdParagraph: 'Merpeople. Police reports say that they responded to an incident in which multiple victims\' arms and legs were shorn off. They were then dragged beneath the surface and returned to land whilst being warned by harsh voices to never disturb their territory again. They reported that the assailants were strange people with fins instead of feat. This occurred at the great lakes. Perhaps we should take this as a warning that American merpeople are vicious.',
   }
 ];
 
@@ -142,7 +156,7 @@ const data = [
     return articleMaker(item);
   })
   
-  console.log(articleMaker(data[0]));
+  
   
   /*articleElements.forEach(value => {
     articles.appendChild(value);
