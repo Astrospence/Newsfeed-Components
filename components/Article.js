@@ -113,16 +113,16 @@ const data = [
     const p1 = document.createElement('p');
     const p2 = document.createElement('p');
     const p3 = document.createElement('p');
-    const button = document.createElement('span');
+    const button = document.createElement('button');
     button.classList.add('expandButton');
 
-    article.appendChild(articles);
-    h2.appendChild(article);
-    p.appendChild(article);
-    p1.appendChild(article);
-    p2.appendChild(article);
-    p3.appendChild(article);
-    button.appendChild(article);
+    articles.appendChild(article);
+    article.appendChild(h2);
+    article.appendChild(p);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    article.appendChild(p3);
+    article.appendChild(button);
     
     h2.textContent = title;
     p.textContent = date;
@@ -131,18 +131,22 @@ const data = [
     p3.textContent = thirdParagraph;
     button.textContent = '+';
 
-    button.addEventListener('click', event => {
-      button.classList.toggle('article-open');
-
-      return article;
+    button.addEventListener('click', () => {
+      article.classList.toggle('article-open');
     })
+
+    return article;
   }
 
   const articleElements = data.map(item => {
     return articleMaker(item);
   })
-
   
+  console.log(articleMaker(data[0]));
+  
+  /*articleElements.forEach(value => {
+    articles.appendChild(value);
+  })
   
   /*Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
